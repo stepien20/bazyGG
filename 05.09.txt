@@ -1,0 +1,29 @@
+show databaseS; pokazuje wszystkie bazy danych 
+w SQL nie daje automatycznie srednika w mySQL sam daje na koncu srednik
+
+show schemaS;
+pokaz wszystkie schematy
+
+a schemat jest taki sam jak baza danych
+oznaczaja to samo ale wyglada tak samo
+
+use nazwa_bazy_danych; wbija do bazy danych
+
+
+
+show tables in baza_danych
+
+show tables from baza_danych
+
+select schema_name from information_schema.schemata
+
+show databases like `%sklep%` tylko sklep nie moze byc na samym poczatku ani na samym koncu bo nie zadziala
+
+show create database sklep; bo ta baza danych musi istniec lol w sensie nazwa
+
+show [full] columns from nazwa_tabeli [from nazwa_bazy] [like 'szablon']
+
+describe- dostarcza informacji o kolumnach w tabeli
+czyli podobne do show columns 
+
+
