@@ -24,6 +24,46 @@ show create database sklep; bo ta baza danych musi istniec lol w sensie nazwa
 show [full] columns from nazwa_tabeli [from nazwa_bazy] [like 'szablon']
 
 describe- dostarcza informacji o kolumnach w tabeli
-czyli podobne do show columns 
+czyli podobne do show columns from baza.tabela
+albo show columnS from tabela from baza
+
+drop database db_name;
+use data.db;
+
+
+show index from nazwa_tabeli [from nazwa_bazy] pokaze informacje o indeksach w danej tabeli
+
+
+create database nazwa_db;
+create database nazwa_db default character set utf8 default collate utf8_general_ci;
+
+use database fff;  
+
+show character set; pokazuje wszystkie kodowania
+
+zeby sprawdzic domyslne kodowania znakow i kolatacje
+
+USE db_name;
+SELECT @@character_set_database, @@collation_database;
+
+ALBO
+
+SELECT DEFAULT_CHARACTER_SET_NAME, DEFAULT_COLLATION_NAME
+FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'db_name';
+
+
+select database(); pokazuje w jakiej bazie danych jestem
+
+jak jestem w bazie
+show tables;
+jak nie jestem w bazie
+shwo tables from baza_nazwa; no bo nie wie skad ma wziac
+
+
+
+
+describe nazwa_tabeli; pokazuje strukture kolumn czyli nazwe typ null key itd itp duzo opcji co sie ustawia
+
+
 
 
