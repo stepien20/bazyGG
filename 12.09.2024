@@ -9,3 +9,33 @@ i tam masz konsole mysql
 
 i stamtad mozesz normalnie wszystko robic jak masz serwer mysql
 SELECT database(); pokazuje nam w jakie bazie jestesmy (czyli ktora uzywamy ('use baza;')); 
+
+show table status;
+pokazuje duzo informacji o tabelach
+
+jak chceym polaczyc 2 polecenia np select @@character_set_database i @@collation_database to 
+dajemy PRZECINEK
+i bedzie 'select @@character_set_database,@@collation_database;'
+i pokaze nam oba na raz
+czyli na logike jak robisz reszte np select kol1,kol2 from tabela from baza;
+
+create table tabela(
+id int not null auto_increment,
+kol2 varchar(255) not null,
+kol3 varchar(40),
+kol4 int,
+
+primary key(id) //bez przecinka na koncu 
+
+);
+
+ALBO robisz tak
+
+
+create table tabela(
+id int not null auto_increment primary key//albo tutaj piszesz primary key,
+kol2 varchar(255) not null,
+kol3 varchar(40),
+kol4 int
+);
+
