@@ -73,3 +73,14 @@ id int not null AUTO_INCREMENT PRIMARY KEY,
 );
 
 wiec tak to trzeba z kluczem obcym
+
+
+
+zeby usunac klucz glowny trzeba usunac auto inkremenctajce
+
+
+
+alter table 'adres' add index(`id'); indexuje ID
+
+czyli jednoznacznie definiuje gdzie jest kolumna id w ktorej tabeli w ktorej bazie dzieki czemu szybciej bedzie sie szukalo uzywajac tego bo jest juz to okreslone czy cos
+
