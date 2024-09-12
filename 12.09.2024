@@ -45,3 +45,4 @@ kol2 varchar(255) not null
 );
 
 
+create database rezerwacje DEFAULT CHARACTER SET utf8 default COLLATE utf8_polish_ci;
