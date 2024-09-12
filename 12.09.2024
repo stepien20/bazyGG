@@ -84,3 +84,19 @@ alter table 'adres' add index(`id'); indexuje ID
 
 czyli jednoznacznie definiuje gdzie jest kolumna id w ktorej tabeli w ktorej bazie dzieki czemu szybciej bedzie sie szukalo uzywajac tego bo jest juz to okreslone czy cos
 
+
+
+show table liga nie dziala
+trzeba zrobic 
+DESCRIBE liga;
+
+https://i.sstatic.net/2p4Tv.png
+tutaj masz RELACJE WSZYSTKIE
+
+jest takie narzedzie DBDDesinger4 i tam mozesz sobie projektowac bazy danych
+
+
+
+
+
+
