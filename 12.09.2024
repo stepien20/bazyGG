@@ -1,4 +1,4 @@
-d
+  d
 jka nie wiemy jakiej collation uzyc to przy "show collation;" wyswietli nam wszystok
 
 
@@ -38,4 +38,10 @@ kol2 varchar(255) not null,
 kol3 varchar(40),
 kol4 int
 );
+
+SQL create table tab(
+ID int identity(1,1) primary key, //identity inaczej auto inkremenctacja w SQL (1,1) czyli od jednego zaczynamy i o 1 dodajemy jak bby bylo identity (1,2) to od 1 skaczemy co 2
+kol2 varchar(255) not null
+);
+
 
