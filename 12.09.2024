@@ -1,1 +1,11 @@
 d
+jka nie wiemy jakiej collation uzyc to przy "show collation;" wyswietli nam wszystok
+
+
+w CMD
+przechodzisz do c/xampp
+i tam mozesz uzyc mysql -u -root 
+i tam masz konsole mysql
+
+i stamtad mozesz normalnie wszystko robic jak masz serwer mysql
+SELECT database(); pokazuje nam w jakie bazie jestesmy (czyli ktora uzywamy ('use baza;')); 
