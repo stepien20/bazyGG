@@ -35,4 +35,8 @@ albo
 
 select klienci.imie,klienci.nazwisko from klienci where klienci.idklienta not in(select zamowienia.idklienta from zamowienia group by zamowienia.idklienta);
 
-
+zad 17 
+select klienci.imie,klienci.nazwisko,COUNT(zamowienia.idklienta) from klienci join zamowienia on zamowienia.idklienta=klienci.idklienta GROUP by zamowienia.idklienta;
+                                                  ||
+LEPIEJ TAK ZROBIC BO NA INNYM SILNIKU NIE ZADZIALA\/
+select klienci.imie,klienci.nazwisko,COUNT(zamowienia.idklienta) from klienci join zamowienia on zamowienia.idklienta=klienci.idklienta GROUP by klienci.imie,klienci.nazwisko;
