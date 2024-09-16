@@ -15,8 +15,14 @@ moze byc
 
 zad 19 select klienci.imie, klienci.nazwisko from klienci where klienci.idklienta IN (select zamowienia.idklienta from zamowienia group by idklienta HAVING count(zamowienia.idklienta)=1);
 
-zad 20 select klienci.imie, klienci.nazwisko from klienci where klienci.idklienta IN (select zamowienia.idklienta from zamowienia group by idklienta HAVING count(zamowienia.idklienta)>2);
+zad 20 
+TEN SPOSOB JEST OK ALE NIE MA KOLUMNY ILOSCI I NIE BEDZIE WIEC JEST ZLE DLA TEGO ZADANIA ALE JEZELI NIE TRZEBA TO JEST NAJBARDZIEJ OPTYMALNE przynajmniej dla malej ilosci rekordow
+select klienci.imie, klienci.nazwisko from klienci where klienci.idklienta IN (select zamowienia.idklienta from zamowienia group by idklienta HAVING count(zamowienia.idklienta)>1);
 
+albo
+select klienci.imie,klienci.nazwisko from zamowienia join klienci on klienci.idklienta=zamowienia.idklienta group by klienci.imie,klienci.nazwisko HAVING count(zamowienia.idklienta)>1;
+albo
+select klienci.imie,klienci.nazwisko,count(zamowienia.idklienta) as ilosc from zamowienia join klienci on klienci.idklienta=zamowienia.idklienta group by klienci.imie,klienci.nazwisko HAVING ilosc>1;
 zad 21
 
 select klienci.imie,klienci.nazwisko from klienci left join zamowienia on klienci.idklienta=zamowienia.idklienta
@@ -40,3 +46,9 @@ select klienci.imie,klienci.nazwisko,COUNT(zamowienia.idklienta) from klienci jo
                                                   ||
 LEPIEJ TAK ZROBIC BO NA INNYM SILNIKU NIE ZADZIALA\/
 select klienci.imie,klienci.nazwisko,COUNT(zamowienia.idklienta) from klienci join zamowienia on zamowienia.idklienta=klienci.idklienta GROUP by klienci.imie,klienci.nazwisko;
+
+zad 24
+update zamowienia set zamowienia.status="wysłano" where year(zamowienia.data)=2021 
+
+zad 27
+delete from klienci where klienci.imie="Andrzej" and klienci.nazwisko like "D%"
