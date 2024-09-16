@@ -10,3 +10,24 @@ moze byc
 -cascade    zmienia/usuwa w kazdej tabeli 
 -no action  nie pozwala usunac 
 -restrict   tez nie pozwala usunac ale jakis niuans jest
+
+
+
+zad 19 select klienci.imie, klienci.nazwisko from klienci where klienci.idklienta IN (select zamowienia.idklienta from zamowienia group by idklienta HAVING count(zamowienia.idklienta)=1);
+
+zad 20 select klienci.imie, klienci.nazwisko from klienci where klienci.idklienta IN (select zamowienia.idklienta from zamowienia group by idklienta HAVING count(zamowienia.idklienta)>2);
+
+zad 21
+
+select klienci.imie,klienci.nazwisko from klienci left join zamowienia on klienci.idklienta=zamowienia.idklienta
+except 
+select klienci.imie,klienci.nazwisko from klienci right join zamowienia on klienci.idklienta=zamowienia.idklienta;
+
+
+
+albo 
+
+select klienci.imie,klienci.nazwisko from klienci left join zamowienia on klienci.idklienta=zamowienia.idklienta where zamowienia.idzamowienia is NULL;
+
+`IS NULL `a nie `= NULL`
+
