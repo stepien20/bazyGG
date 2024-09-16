@@ -20,7 +20,7 @@ TEN SPOSOB JEST OK ALE NIE MA KOLUMNY ILOSCI I NIE BEDZIE WIEC JEST ZLE DLA TEGO
 select klienci.imie, klienci.nazwisko from klienci where klienci.idklienta IN (select zamowienia.idklienta from zamowienia group by idklienta HAVING count(zamowienia.idklienta)>1);
 
 albo
-select klienci.imie,klienci.nazwisko from zamowienia join klienci on klienci.idklienta=zamowienia.idklienta group by klienci.imie,klienci.nazwisko HAVING count(zamowienia.idklienta)>1;
+select klienci.imie,klienci.nazwisko,count(zamowienia.idklienta) from zamowienia join klienci on klienci.idklienta=zamowienia.idklienta group by klienci.imie,klienci.nazwisko HAVING count(zamowienia.idklienta)>1;
 albo
 select klienci.imie,klienci.nazwisko,count(zamowienia.idklienta) as ilosc from zamowienia join klienci on klienci.idklienta=zamowienia.idklienta group by klienci.imie,klienci.nazwisko HAVING ilosc>1;
 zad 21
@@ -52,3 +52,8 @@ update zamowienia set zamowienia.status="wysłano" where year(zamowienia.data)=2
 
 zad 27
 delete from klienci where klienci.imie="Andrzej" and klienci.nazwisko like "D%"
+
+zad25
+alter TABLE klienci add column email varchar(127);
+i tutaj taki knif
+alter table klienci alter email set default "wartosc domyslna dla emaila"
