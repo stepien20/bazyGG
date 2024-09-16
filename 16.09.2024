@@ -1,1 +1,12 @@
-d
+integralnosc bazy danych 
+czyli ma relacje i jest spojnosc
+
+definiujac klucz obyc mozna dodac takei gowno
+
+foreing key (cos) references inne(cos) 
+on delete set null on update cascade;
+moze byc 
+-set        null ustawia null
+-cascade    zmienia/usuwa w kazdej tabeli 
+-no action  nie pozwala usunac 
+-restrict   tez nie pozwala usunac ale jakis niuans jest
