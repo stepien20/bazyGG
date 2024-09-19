@@ -1,1 +1,59 @@
 1
+create user `username`@`localhost` identified by password
+
+usernam - nazwa
+@ -@
+localhost- adres z ktorego sie logujemy
+
+nadawane uprawnien
+
+
+GRANT all privileges on *.* to 'username'@'localhost';
+
+*.*
+pierwsza gwiazdka oznacza WSZYSTKIE BAZY DANYCH
+druga gwiazdka oznacza WSZYSTKIE TABELE w bazie danych
+
+no bo masz np baza.tabela to stad sie wzielo
+
+FLUSH PRIVILEGES; potwierdza wewnetrzna aktualizacje serwera by uprawnienia dzialaly
+===================================================================================
+mozliwe uprawnienia:
+all privileges -wszystko dostepne
+create- pozwala na tworzenie
+drop - pozwala na usuwanie 
+delete -pozwala na usuwanie rekordow
+insert - insert
+select - select
+update - update
+grant option - pozwala na nadawanie i usuwanie uprawnien innym uzytkownikom
+===================================================================================
+grant permission on database.table to 'username'@'localhost' GDZIE PERMISSION TO JEDNO Z POWYZEJ WYMIENONICH UPRAWNIEN
+
+===================================================================================
+usuwanie uprawnien:
+REVOKE:
+REVOKE permission on database.table to 'username'@'localhost'
+wszystko tak samo jak w grant'cie
+===================================================================================
+drop user 'username'@'localhost'; -USUWANIE USERA
+
+
+
+zeby uzytkownik mogl z kazdego komputera w danej domenie polaczyc sie z baza danych to zamiast 'localhost' dajemy %
+
+
+create user 'user'@' %.nazwa_domeny' identified by 'haslo'
+
+
+jak chcemy doslownei dowolny to 
+create user 'user'@' %' identified by 'haslo'
+
+a jak chcemy z dokladnego IP
+to
+create user 'user'@'213.210.44.122' identified by 'haslo' 
+wtedy user moze sie zalogowac do bazy z tego adresu IP
+
+a jak chcemy zeby tylko na kompie z serwerem to zostawiamy localhost
+
+
