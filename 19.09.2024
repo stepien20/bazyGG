@@ -1,4 +1,4 @@
-1
+1 PRZYPOMNIC CO TO JEST DDL DCL IML
 create user `username`@`localhost` identified by password
 
 usernam - nazwa
@@ -39,6 +39,9 @@ wszystko tak samo jak w grant'cie
 drop user 'username'@'localhost'; -USUWANIE USERA
 
 
+dodawanie uprawnien do isntniejacego bedzie poprostu 
+alter user CHYBA
+alter any user np czy cos
 
 zeby uzytkownik mogl z kazdego komputera w danej domenie polaczyc sie z baza danych to zamiast 'localhost' dajemy %
 
@@ -56,4 +59,38 @@ wtedy user moze sie zalogowac do bazy z tego adresu IP
 
 a jak chcemy zeby tylko na kompie z serwerem to zostawiamy localhost
 
+MOZEMY TEZ WLASNE ROLE TWORZYC
+create role `admin`,'sysq'; kilka rol to po przecinku
+create role `dddd`@`localhost`;
+rodzaje ról:
+serwerowe
+bazo danowe
+przez uzytkownika
+
+sysadmin - kazda operacja na serwerze 
+serveradmin- rola administrowania serwera ale NIE bazami danych
+setupadmin- konfiguracja systemu 
+securityadmin- bezpieczenstwo konta jakies upranienia itd ale nie do baz danych
+processamin- konfigurowanie procesow uruchumoniych na serwerze NIE BAZA DANYCH
+basecreatoradmin- tworzenie usuwanie kopii
+diskadmin-zarzadzanie dyskami
+vulcanadmin-masowe wstawianie danych
+
+
+dbowner-wlasciciel bazy danych
+
+
+bazo danowe
+dbowner-wlasciciel bazy danych
+
+ten sam uzytkownik moze byc przypisnay do roznych rol
+
+
+
+
+
+grant select,insert,update,delete on dbo.Ksiazki TO Blok1;
+Blok1 to grupa;
+
+DENY- jawne odebranie uprawnien uzytkownikowi takie zakazanie nawet
 
