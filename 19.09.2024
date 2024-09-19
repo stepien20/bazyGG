@@ -94,3 +94,27 @@ Blok1 to grupa;
 
 DENY- jawne odebranie uprawnien uzytkownikowi takie zakazanie nawet
 
+
+
+
+tabele slownikowe
+informacje na temat praw dostepu uzytkownikow sa przechowywane w tabelach slownikowych
+tabele slownikowe:
+host,db,user,tables_priv,columns_priv,procs_priv
+
+use mysql 
+select host,user from user where user='username'
+
+
+grant update on db.* to username;
+czyli z bazy danych db username moze updateowac kazda tabele 
+
+grant usage on *.* to username with jakies prawo np zeby jedne user sie mogl zalogowac na godzine
+
+
+show GRANTS(nie GRANT tylko Z "S") for username
+
+select * from user;
+ale duzo wypisuje lol;
+wiec na myadmin nie dziala;
+
