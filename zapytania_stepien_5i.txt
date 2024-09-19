@@ -1,0 +1,46 @@
+create user 'spejson'@'localhost';
+
+grant INSERT,SELECT on ksiegarnia.* to spejson;
+
+show grants for spejson;
+
+
+
+
+create user 'spejson2'@'localhost';
+
+grant usage on ksiegarnia.* to spejson2;
+
+show grants for spejson2;
+
+
+select * from mysql.user where user="spejson2";
+
+
+
+
+
+create user 'Michał'@'localhost';
+
+grant usage on ksiegarnia.* to Michał;
+
+
+show grants for Michał;
+
+
+select * from mysql.user where user="Michał"
+
+
+
+
+
+grant INSERT,SELECT on ksiegarnia.* to Michał;
+
+show grants for Michał;
+
+
+
+
+
+
+

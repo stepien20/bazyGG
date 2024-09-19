@@ -1,0 +1,6 @@
+2.create user 'uczen2'@'localhost' identified by 'uczen123';
+3.create user 'uczen2a'@'%' identified by "uczen321";
+4.grant delete,insert,select on ksiegarnia.klient to 'uczen2'; 
+5.grant all PRIVILEGES on ksiegarnia.zamowienia to uczen2;
+6.REVOKE delete on ksiegarnia.zamowienia from uczen2;
+
