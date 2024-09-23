@@ -1,1 +1,27 @@
-d
+redundancja-nadmiarowosc
+tego nie lubimy
+Normalizacja:
+1 postac normalna 
+-1 tabela przechowuje 1 typ danych czyli jak mamy imie i nazwisko to robimy z tego 2 kolumny z imieniem i z nazwiskiem a nie 1 
+2 postac normalna
+-musi byc 1 postac spelniona
+-w tabeli wszystie kolumny nie bedace kluczem musza byc zalezne od klucza 
+3 postac normalna
+-2 postac musi byc spelniona
+-kolumna ktora nie jest kluczem nie moze zalezec od innej kolumny ktora nie jest kluczem
+
+1.Ile produktów jest w każdej z kategorii
+SELECT kategorie.OpisKategorii,count(produkty.NazwaProduktu) from produkty join kategorie on produkty.IDKategorii=kategorie.IDKategorii group by produkty.IDKategorii;
+2.Ile produktów dostarcza każdy z dostawców
+SELECT count(dostawcy_produktow.NumerProduktu),dostawcy.NazwaDostawcy FROM `dostawcy_produktow` join dostawcy on dostawcy.IDDostawcy=dostawcy_produktow.IDDostawcy WHERE 1 group by dostawcy_produktow.IDDostawcy
+3. Ile razy dokonał zamówienia każdy klient
+SELECT count(zamowienia.NumerZamowienia),klienci.ImieKlienta,klienci.NazwiskoKlienta FROM `zamowienia` join klienci on klienci.IDKlienta=zamowienia.IDKlienta WHERE 1 group by zamowienia.IDKlienta
+4. Ile razy dokonał zamówienia każdy klient, uwzględniając tylko tych, którzy zamówienie realizowali mniej niż 30 razy
+SELECT count(zamowienia.NumerZamowienia) as `ilosc_zamowien`,klienci.ImieKlienta,klienci.NazwiskoKlienta FROM `zamowienia` join klienci on klienci.IDKlienta=zamowienia.IDKlienta WHERE 1 group by zamowienia.IDKlienta HAVING ilosc_zamowien<30;
+5. Ile razy dokonał zamówienia każdy klient w grudniu 2012
+SELECT count(zamowienia.NumerZamowienia) as `ilosc_zamowien`,klienci.ImieKlienta,klienci.NazwiskoKlienta,zamowienia.DataZamowienia FROM `zamowienia` join klienci on klienci.IDKlienta=zamowienia.IDKlienta WHERE month(zamowienia.DataZamowienia)=12 and year(zamowienia.DataZamowienia)=2012 group by zamowienia.IDKlienta;
+6. Kwota (suma) zamówień poszeczególnych klientów
+7. Kwota (suma) zamówień poszczególnych klientów z września 2012, posortowana wg wartości
+8. Kwota (suma) zamówień poszczególnych klientów, uwzględniając tylko sumę powyżej 200k
+9. Suma sprzedaży wg produktów
+10. Średnia wartość zamówień we wrześniu 2012
