@@ -1,0 +1,21 @@
+DDL definiowanie danych
+create
+alter 
+drop
+
+DML data manipulation language czyli mainpulowanie danych 
+select 
+insert
+update 
+delete
+
+DCL Data control language czyli jezyk kontroli danych / przedzyielanie 
+grant 
+revoke 
+itp
+
+TCL jezyk kontroli transaksji
+
+commit
+rollback
+begin 
