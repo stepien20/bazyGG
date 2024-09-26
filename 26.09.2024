@@ -21,3 +21,22 @@ begin
 
 
 DQL skip
+
+
+predykaty
+okresla warunek ktory jest prawdziwy falszywy lub nieznany
+between  -zakres miedzy 2 wartosciami
+distinct - usuwa powtarzajace sie rekordy
+IN - zbiory wartosci ktoruch szukamy  np select kolumna from tabela where kolumna IN (wartosc1,wartosc2)
+exists - sprawdza czy istnieje cos czy nie i zwraca prawde lub falsz
+select nazwy_kolumn from nazwa_tabeli where exists (select nazwy_kolumn from nazwa_tabeli where warunki)
+
+select nazwa from producent where exists (
+Select nazwa from produkt where produkt.producent_id =producent.id and cena <10
+)
+not - negacja
+and - wiadomo oba warunki spelnione
+or - jeden z warunkow musi byc spelniony
+any
+some
+all
