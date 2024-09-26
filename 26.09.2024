@@ -15,7 +15,9 @@ revoke
 itp
 
 TCL jezyk kontroli transaksji
-
 commit
 rollback
 begin 
+
+
+DQL skip
