@@ -1,0 +1,100 @@
+1.	Wyświetl informacje o samochodach marki opel wraz z dodatkową kolumną zawierającą średnią cenę samochodów tej marki.
+SELECT
+    *,
+    (
+    SELECT
+        ROUND(
+            AVG(samochody.cena_katalogowa),
+            2
+        ) AS `srednia cena`
+    FROM
+        samochody where samochody.marka="opel"
+)
+FROM
+    `samochody`
+JOIN klasy_samochodow ON klasy_samochodow.id_klasy = samochody.id_klasy
+WHERE
+    samochody.marka = "opel";
+2.	Wyświetl informacje o najtańszych samochodach w bazie.
+SELECT
+    *
+FROM
+    `samochody`
+WHERE
+    samochody.cena_katalogowa = (SELECT min(samochody.cena_katalogowa) from samochody);
+3.	Wyświetl informacje o samochodach, które nie zostały nigdy wypożyczone.
+SELECT
+    *
+FROM
+    samochody
+WHERE
+    samochody.id_samochodu NOT IN(
+    SELECT
+        dane_wypozyczen.id_samochodu
+    FROM
+        dane_wypozyczen
+);
+4.	Policz ile razy dokonywano wypożyczenia na więcej niż jedno auto.
+SELECT
+    COUNT(*)
+FROM
+    (
+    SELECT
+        dane_wypozyczen.id_wypozyczenia
+    FROM
+        `dane_wypozyczen`
+    GROUP BY
+        dane_wypozyczen.id_wypozyczenia
+    HAVING
+        COUNT(dane_wypozyczen.id_samochodu) > 1
+) AS t;
+5.	Wyświetl informacje o klientach (imię i nazwisko), którzy dokonali największej liczby wypożyczeń.
+SELECT
+    klienci.imie_klienta,
+    klienci.nazwisko_klienta
+FROM
+    `klienci`
+JOIN wypozyczenia ON klienci.id_klienta = wypozyczenia.id_klienta
+GROUP BY
+    klienci.imie_klienta,
+    klienci.nazwisko_klienta,
+    klienci.id_klienta
+HAVING
+    COUNT(wypozyczenia.id_wypozyczenia) =(
+    SELECT
+        COUNT(*)
+    FROM
+        wypozyczenia
+    GROUP BY
+        wypozyczenia.id_klienta
+    ORDER BY
+        `count(*)`
+    DESC
+LIMIT 1
+);
+6.	Wyświetl informacje o klientach (imię i nazwisko), którzy nigdy nie wypożyczali aut z klasy 'sedan'.
+SELECT
+    *
+FROM
+    `klienci`
+JOIN wypozyczenia ON wypozyczenia.id_klienta = klienci.id_klienta
+JOIN dane_wypozyczen ON dane_wypozyczen.id_wypozyczenia = wypozyczenia.id_wypozyczenia
+JOIN samochody ON samochody.id_samochodu = dane_wypozyczen.id_samochodu
+JOIN klasy_samochodow ON klasy_samochodow.id_klasy = samochody.id_klasy
+WHERE
+    klasy_samochodow.nazwa_klasy NOT IN("sedan");
+
+SELECT
+    *
+FROM
+    `klienci`
+JOIN wypozyczenia ON wypozyczenia.id_klienta = klienci.id_klienta
+JOIN dane_wypozyczen ON dane_wypozyczen.id_wypozyczenia = wypozyczenia.id_wypozyczenia
+JOIN samochody ON samochody.id_samochodu = dane_wypozyczen.id_samochodu
+JOIN klasy_samochodow ON klasy_samochodow.id_klasy = samochody.id_klasy
+WHERE
+    klasy_samochodow.nazwa_klasy NOT like "%sedan%"  
+7.      Wyświetl wszystkie marki i modele samochodów (wraz z id i nr rejestracyjnym) z dopiskiem czy były wypożyczane w okresie od 21 do 31 grudnia 2022.
+8.	Wyświetl informacje o samochodach, których cena wypożyczenia za dobę jest większa lub równa średniej cenie samochodu w danej klasie.
+9.      Wyświetl informacje o samochodach, których cena wypożyczenia za dobę jest największa w danej klasie. 
+10.	Wyświetl imiona i nazwiska klientów (imię i nazwisko), którzy wypożyczali auto Opel Astra, ale nigdy nie wypożyczali Forda Mondeo.	
