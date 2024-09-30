@@ -1,0 +1,14 @@
+1. Wyœwietl datê wypo¿yczenia, imiê i nazwisko klienta oraz markê i model samochodu. Dane posortów alfabetycznie wg nazwisk.
+SELECT wypozyczenia.data_wyp,klienci.imie,klienci.nazwisko,samochody.marka,samochody.model FROM `klienci` join wypozyczenia on klienci.id_klienta=wypozyczenia.id_klienta join samochody on samochody.id_samochodu=wypozyczenia.id_samochodu order by klienci.nazwisko asc;
+2. Wyœwietl imiona i nazwiska dwóch pierwszych pracowników z listy.
+SELECT pracownicy.imie_p,pracownicy.nazwisko_p FROM `pracownicy` limit 2;
+3. Wyœwietl imiona i nazwiska trzech pracowników z najni¿sz¹ pensj¹.
+SELECT pracownicy.imie_p,pracownicy.nazwisko_p FROM `pracownicy` order by pracownicy.pensja desc limit 3;
+4. Dla ka¿dego klienta wyœwietl imiê i nazwisko oraz ³¹czn¹ iloœæ wypo¿yczeñ.
+SELECT klienci.imie,klienci.nazwisko,count(wypozyczenia.id_wypozyczenia) as `ilosc_wypozyczen` FROM `klienci` join wypozyczenia on wypozyczenia.id_klienta=klienci.id_klienta group by klienci.imie,klienci.nazwisko;
+5. Wyœwietl imiê i nazwisko pracownika z najwy¿sz¹ pensj¹.
+select pracownicy.imie_p,pracownicy.nazwisko_p from pracownicy where pracownicy.pensja IN(SELECT MAX(pracownicy.pensja) from pracownicy);
+6. Wyœwietl katalog aut (marka,model,rok produkcji) posortowane malej¹co wg liczny wypo¿yczeñ.
+SELECT samochody.marka,samochody.model,samochody.data_prod FROM `samochody` join wypozyczenia on wypozyczenia.id_samochodu=samochody.id_samochodu group by samochody.marka,samochody.model,samochody.data_prod order by count(wypozyczenia.id_wypozyczenia) desc;
+7. Wyœwietl imiona i nazwiska klientów, którzy nigdy nie wypo¿yczyli auta.
+SELECT klienci.imie,klienci.nazwisko from klienci where klienci.id_klienta not in(SELECT wypozyczenia.id_klienta from wypozyczenia);
