@@ -1,0 +1,2 @@
+w schemacie logicznym jest dziedziczenie ale w fizycznym nie ma wiec to usuwasz 
+jak masz relacje wiele do wielu to trzeba zrobic tabele łącznikową
