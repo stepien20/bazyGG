@@ -1,1 +1,86 @@
+7 zadanie z 30.09
+SELECT
+    samochody.id_samochodu,
+    samochody.marka,
+    samochody.model,
+    samochody.nr_rejestracyjny,
+    CASE WHEN wypozyczenia.data_wyp BETWEEN "2022-12-21" AND "2022-12-31" THEN "tak" ELSE "nie"
+END AS `wypozyczenie 21-31 grudnia 2022`
+FROM
+    `samochody`
+JOIN dane_wypozyczen ON dane_wypozyczen.id_samochodu = samochody.id_samochodu
+JOIN wypozyczenia ON wypozyczenia.id_wypozyczenia = dane_wypozyczen.id_wypozyczenia;
 
+albo 
+
+SELECT
+    samochody.id_samochodu,
+    samochody.marka,
+    samochody.model,
+    samochody.nr_rejestracyjny,
+    CASE WHEN wypozyczenia.data_wyp BETWEEN "2022-12-21" AND "2022-12-31" THEN "tak" ELSE "nie"
+END AS `wypozyczenie 21-31 grudnia 2022`
+FROM
+    `samochody`
+JOIN dane_wypozyczen ON dane_wypozyczen.id_samochodu = samochody.id_samochodu
+JOIN wypozyczenia ON wypozyczenia.id_wypozyczenia = dane_wypozyczen.id_wypozyczenia
+GROUP BY
+    samochody.id_samochodu,
+    samochody.marka,
+    samochody.model,
+    samochody.nr_rejestracyjny;
+
+IDK ktore
+
+zad8 
+SELECT
+    samochody.*,
+    klasy_samochodow.nazwa_klasy,
+    dane_wypozyczen.cena_doba
+FROM
+    `klasy_samochodow`
+JOIN samochody ON samochody.id_klasy = klasy_samochodow.id_klasy
+JOIN dane_wypozyczen ON dane_wypozyczen.id_samochodu = samochody.id_samochodu
+JOIN(
+    SELECT
+        AVG(dane_wypozyczen.cena_doba) AS `srednia`,
+        klasy_samochodow.nazwa_klasy AS `klasa`
+    FROM
+        `klasy_samochodow`
+    JOIN samochody ON samochody.id_klasy = klasy_samochodow.id_klasy
+    JOIN dane_wypozyczen ON dane_wypozyczen.id_samochodu = samochody.id_samochodu
+    GROUP BY
+        klasy_samochodow.nazwa_klasy
+) t1
+ON
+    t1.klasa = klasy_samochodow.nazwa_klasy
+WHERE
+    dane_wypozyczen.cena_doba >= t1.srednia AND klasy_samochodow.nazwa_klasy = t1.klasa
+GROUP BY
+    samochody.id_samochodu;
+
+zad9
+
+SELECT
+    samochody.*,
+    dane_wypozyczen.cena_doba,
+    klasy_samochodow.nazwa_klasy
+FROM
+    `klasy_samochodow`
+JOIN samochody ON samochody.id_klasy = klasy_samochodow.id_klasy
+JOIN dane_wypozyczen ON dane_wypozyczen.id_samochodu = samochody.id_samochodu
+JOIN(
+    SELECT
+        klasy_samochodow.nazwa_klasy AS `klasa`,
+        MAX(dane_wypozyczen.cena_doba) AS `maks`
+    FROM
+        `klasy_samochodow`
+    JOIN samochody ON samochody.id_klasy = klasy_samochodow.id_klasy
+    JOIN dane_wypozyczen ON dane_wypozyczen.id_samochodu = samochody.id_samochodu
+    GROUP BY
+        klasy_samochodow.nazwa_klasy
+) t1
+ON
+    t1.klasa = klasy_samochodow.nazwa_klasy
+WHERE
+    dane_wypozyczen.cena_doba = t1.maks;
