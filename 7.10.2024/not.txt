@@ -96,6 +96,29 @@ JOIN samochody ON samochody.id_samochodu = dane_wypozyczen.id_samochodu
 WHERE
     samochody.marka LIKE "%opel%" AND samochody.model LIKE "%astra%" AND samochody.marka NOT LIKE "%ford%" AND samochody.marka NOT LIKE "%mondeo%";
 
+ALBO
+
+SELECT
+    klienci.imie_klienta,
+    klienci.nazwisko_klienta
+FROM
+    klienci
+JOIN wypozyczenia ON wypozyczenia.id_klienta = klienci.id_klienta
+JOIN dane_wypozyczen ON dane_wypozyczen.id_wypozyczenia = wypozyczenia.id_wypozyczenia
+JOIN samochody ON samochody.id_samochodu = dane_wypozyczen.id_samochodu
+where samochody.marka like "%opel%" and samochody.model like "%astra%" 
+except
+SELECT
+    klienci.imie_klienta,
+    klienci.nazwisko_klienta
+FROM
+    klienci
+JOIN wypozyczenia ON wypozyczenia.id_klienta = klienci.id_klienta
+JOIN dane_wypozyczen ON dane_wypozyczen.id_wypozyczenia = wypozyczenia.id_wypozyczenia
+JOIN samochody ON samochody.id_samochodu = dane_wypozyczen.id_samochodu
+where samochody.marka like "%ford%" and samochody.model like "%mondeo%";
+
+
 zad dod
 info o samochodach ktore sa dostepne 31 grudnia 2022
 
@@ -125,4 +148,12 @@ Select pracownicy.imie_pracownika as imie,pracownicy.nazwisko_pracownika,'pracow
 
 UNION ALL wypisuje powtarzajace sie wyniki
 UNION usuwa duplikaty czyli z DISTINCT
+
+
+INTERSECT - czesc wpsolna z obu zapytan 
+
+
+EXCEPT - roznica zbioru czyli to czego nie maja wspolnego
+
+
 
