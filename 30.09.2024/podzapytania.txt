@@ -95,6 +95,9 @@ JOIN klasy_samochodow ON klasy_samochodow.id_klasy = samochody.id_klasy
 WHERE
     klasy_samochodow.nazwa_klasy NOT like "%sedan%"  
 7.      Wyświetl wszystkie marki i modele samochodów (wraz z id i nr rejestracyjnym) z dopiskiem czy były wypożyczane w okresie od 21 do 31 grudnia 2022.
+
 8.	Wyświetl informacje o samochodach, których cena wypożyczenia za dobę jest większa lub równa średniej cenie samochodu w danej klasie.
+
 9.      Wyświetl informacje o samochodach, których cena wypożyczenia za dobę jest największa w danej klasie. 
+
 10.	Wyświetl imiona i nazwiska klientów (imię i nazwisko), którzy wypożyczali auto Opel Astra, ale nigdy nie wypożyczali Forda Mondeo.	
