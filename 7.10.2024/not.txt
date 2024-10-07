@@ -84,3 +84,45 @@ ON
     t1.klasa = klasy_samochodow.nazwa_klasy
 WHERE
     dane_wypozyczen.cena_doba = t1.maks;
+zad 10
+SELECT
+    klienci.imie_klienta,
+    klienci.nazwisko_klienta
+FROM
+    klienci
+JOIN wypozyczenia ON wypozyczenia.id_klienta = klienci.id_klienta
+JOIN dane_wypozyczen ON dane_wypozyczen.id_wypozyczenia = wypozyczenia.id_wypozyczenia
+JOIN samochody ON samochody.id_samochodu = dane_wypozyczen.id_samochodu
+WHERE
+    samochody.marka LIKE "%opel%" AND samochody.model LIKE "%astra%" AND samochody.marka NOT LIKE "%ford%" AND samochody.marka NOT LIKE "%mondeo%";
+
+zad dod
+info o samochodach ktore sa dostepne 31 grudnia 2022
+
+SELECT
+    samochody.*
+FROM
+    samochody
+JOIN dane_wypozyczen ON samochody.id_samochodu = dane_wypozyczen.id_samochodu
+JOIN wypozyczenia ON wypozyczenia.id_wypozyczenia = dane_wypozyczen.id_wypozyczenia
+WHERE NOT
+    (
+        "2022-12-31" BETWEEN data_wyp AND data_zwr
+    )
+GROUP BY
+    samochody.id_samochodu;
+
+
+
+
+UNION
+laczy 2 selecty ale musi byc tyle samo 
+
+SELECT klienci.imie_klienta as imie,klienci.nazwisko_klienta as nazwisko, 'klient' as `kto` FROM `klienci` 
+UNION
+Select pracownicy.imie_pracownika as imie,pracownicy.nazwisko_pracownika,'pracownik' from pracownicy;
+
+
+UNION ALL wypisuje powtarzajace sie wyniki
+UNION usuwa duplikaty czyli z DISTINCT
+
