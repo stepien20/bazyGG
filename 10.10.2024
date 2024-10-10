@@ -1,0 +1,14 @@
+fsdfsd
+
+
+
+pacz na to 
+
+
+SELECT oddzial.nazwa, pracownicy.nazwisko FROM pracownicy JOIN oddzial ON oddzial.id_odzial = pracownicy.id_odzial WHERE substring(pracownicy.nazwisko,1,1) BETWEEN "B" AND "L";
+
+SELECT
+   klienci.nazwisko
+FROM
+    klienci
+where substring(klienci.nazwisko,2) like "d%a";
