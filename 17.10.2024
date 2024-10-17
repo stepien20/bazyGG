@@ -102,3 +102,29 @@ no jak masz klucze to nie moga byc null no kto by pomyslal
 ograniczenie integralnosci recznie
 
 
+
+
+
+
+
+architektura systemu baz danych
+
+aplikacje <-> relacyjny jezyk programowania<-> system zarzadzania baza danych <->(b1,b2,b3,b4)
+
+
+struktursa komunikacyjna 
+jednowartswowa dwuwarstwowa trzywarstwowa
+
+
+jednowartstowa wszystko jest na jedynm kompie (interfejs uzytkowniaka)
+
+dwuwarstowwa-architektura klient-serwer
+klient nie ma wpywu na ochrone danych itd
+ma tylk dostep do tego
+
+
+
+
+
+trzywarstwowa
+
