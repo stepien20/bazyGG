@@ -1,0 +1,104 @@
+encja - jakis obiekt/rzeczywistosc ktory jest do zdenifniowania inaczej TABELA!!!!!!!!
+bo tabela to jest czesc rzeczywistosci
+encja to tytul tabeli
+atrybuty encji to kolumny 
+krotka to rekord xd
+dane pierowtne nie moga byc wyliczane, musza byc wprowadzone 
+np:
+data urodzenia
+
+dane pochodne= dane wyliczane na podstawie pierwotnych
+np wiek
+bo wiek to teraz-data urodzenia
+
+baza danych-zbior danych ktory dotyczy okreslanego fragmentu (obszaru analizy) rzeczywistoci 
+
+SZBD - system zarzadzania baza danych
+ulatiwa przetwania kopiowanie modyfikacje bazy danych, obsluguje uzytkownikow bazy danych
+wiec umozliwa tworzenie modyfikowanie itd danych
+
+
+wiec np WORKBENCH!!!!!!!!!
+
+
+model danych- zintegrowany zbior zasad okreslajacych dane:
+
+z czego sklada sie baza danych
+czesc strukturalna
+czesc manipulacyjna
+czesc zawierajace reguly integralnosci
+
+
+model hierarchiczny
+-przypomina odwrocone drzewo
+1 tabela nadrzedna i ma swoje galezie galezie inne galezie i lisice itd
+opiera sie na zwiazkach podrzednych nadrzednych
+nie mozna wstawic rekordu podrzednego bez nadrzednego
+no logiczne cnie
+
+
+model sieciowy
+-odwrocone drzewo tez
+-roznica miedzy tym a hierarchiznym: 
+wiele drzew moze dzielic galezie
+
+
+
+model obiektowy
+-tworzenie klas, obiektow, dziedziczenia
+-opiera sie na jezykach z programowaniem obiektowym
+
+
+
+
+model relacyjny
+-opiera sie na relachach- klucz obcy, glowny
+-teoria mnogosci i predykatow wtf
+-Rachunek predykatów pierwszego rzędu
+
+
+
+
+model jednorodny
+-latwosc odczytywania
+-jedna tabela
+-duplikaty(anomalia)
+
+
+model referencyjny
+-chuj wie
+-chyba to smao co relacje jebie mnie to
+
+postgreSQL
+
+
+
+integralnosc danych-spojnosc danych
+dane nie zostane usuniete lub zmodyfikowane w nieautoryzowany sposob
+dane odzwierciedlaja rzeczywistosc poprostu czyli sa prawdzie
+zachowanie poprawnosci bazy danych- utrzymywanie poprawnosci semantyki,encji,
+
+integralnosc semantyczhna-utrzymywanie ograniczen nakladanych na dane
+czyli jak masz tabeka wiek to robisz to unsigned int itd itd
+jak ma byc imie to ma byc varchar bez cyfr itd itp
+
+
+CREATE SCHEMA is a synonym for CREATE DATABASE .
+
+
+kazda encja musi miec klucz glowny
+dane nie moga sie powtarzac
+
+
+
+
+mam wrazenie ze od 10 minut mowi to samo tylko w inny sposob w akademicki sposob
+
+no jak masz klucze to nie moga byc null no kto by pomyslal
+
+
+
+
+ograniczenie integralnosci recznie
+
+
