@@ -134,3 +134,36 @@ trzywarstwowa
 iloczyn kartezjanski to wiadomo wszystko z tabeli A x wszystko z tabeli B
 
 RELACJE RD !!!!! NAUCZ SIE !!!!!!!!!!!!!!!!!!
+
+
+normalizacja ma usunac redundancje
+celem normalizacji jest unikaniem anomalii
+
+
+==========================================================
+1 postac normalna
+-zawiera klucz glowny
+-dane są atomowe (dane sa niepodzielne)
+czyli jak mamy np imie nazwisko 
+to sa to 2 osobne koluny 
+tak samo adres miasto i kraj 
+tez jkoa osobne BO DA SIE PODZIELIC
+
+========================================================
+2 postac normalna
+-musi byc 1 postac
+-dotyczy jednego obiektu 
+3 postac normalna
+-musi byc 2 postac
+-kolumna ktora nie jest kluczem nie moze zalezec od innej kolumny ktora nie jest kluczem
+i np tez jak masz firme i adres i numer i masz ten nr kierunkowy to nie dajesz tego do tej samej tabeli bo nr kierunkowy nie zelzy od firmy tylko od miasta wiec nie powinien tam byc nr kierynkowy w tabeli o firmie
+
+
+normalizacja w skrocie (3 formy)
+bez powtorzen
+pola zaleza od klucza
+od calego klucza
+i niczego innego, tylko klucza
+
+
+anomalie
