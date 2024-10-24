@@ -29,3 +29,13 @@ alter table pasazer RENAME TO pasazerowie
 
 
 alter database nazwaDB character set utf8 collate rodzaj_kodowania
+
+alter table nazwa_tabeli character set utf8 collate rodzaj_kodowania
+
+alter table tabela drop primary key (nazwa_klucza)
+
+alter table rzeczy modify id int not null, add primary key (id)
+
+
+ALTER TABLE myTable ADD myNewColumn VARCHAR(255) AFTER myOtherColumn
+
