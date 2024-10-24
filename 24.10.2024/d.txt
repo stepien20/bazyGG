@@ -1,1 +1,31 @@
+zmiana nazwy tabeli
+alter table tabela rename nowa_nazwa_tabeli;
+alter table tablea add kolumna int(czyli typ) not nulldefault 18
+wiecej niz 1 kolumte
+alter table tabela add (kol1 atrybuty,kol2 atrybuty)
 
+alter table tabela
+modify kolumna atrybuty_nowe
+
+czyli dla pryzkladu
+alter table pasazer
+modify plec varchar(20) not null
+czyli od teraz plec jest varcharem(20) i nie moze byc nullem
+
+zmiana nazwy kolumny :
+alter table tabela
+change stara_kolumna nowa_kolumna int
+
+usuwanie kolumny
+alter table tabela
+drop column kolumn
+
+
+delet usuwa tylko rekordy i zostawia auto increment taki jaki byl
+truncate usuwa rekordy i ustawia auto increment na 1 czyli calkowiecie czysci
+
+zmiana nazwy moze byc tez
+alter table pasazer RENAME TO pasazerowie
+
+
+alter database nazwaDB character set utf8 collate rodzaj_kodowania
