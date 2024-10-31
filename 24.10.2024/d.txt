@@ -36,6 +36,7 @@ alter table tabela drop primary key (nazwa_klucza)
 
 alter table rzeczy modify id int not null, add primary key (id)
 
-
+===================================================================================================
 ALTER TABLE myTable ADD myNewColumn VARCHAR(255) AFTER myOtherColumn
 
+alter table myTable ADD myNewColumn VARCHAR(255) FIRST 
