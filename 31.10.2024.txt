@@ -1,1 +1,9 @@
-constraint check < 1988 tak mozna zrobic lol fajne
+constraint kolumna check < 1988 tak mozna zrobic lol fajne
+
+albo jak sie tworzy kolumny czyli tam 
+create table (
+xyz
+abc
+kolumna_rok check (a chuj wie jendak lol)
+);
+
