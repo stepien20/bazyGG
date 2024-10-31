@@ -1,0 +1,8 @@
+
+jak jest CASCADE to przy update/delete bedzię zmianiało/usuwało w obu tabelach odpowiadające sobie rekordy
+
+jak jest SET NULL przy update/delete to zmiana/usuniecie wartosci w tabeli nadrzednej spowoduje w tej z constraintem wstawienie wartości NULL w miejscu klucza obcego do tamtej tabeli
+
+jak jest restrict lub no action przy update/delete to nie będzie pozwalało modyfikować/usuwać danej tresci
+
+gdy w enum doda się inną wartość niz oczekiwana to to przejdzie, ale wartość w enum bedzie '' ale nie bedzie null
