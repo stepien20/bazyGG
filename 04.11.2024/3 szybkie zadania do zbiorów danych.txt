@@ -1,3 +1,67 @@
 1. Utwórz widok "dane_osobowe" zawierający: nazwę (w przypadku klientów i pracowników imię i nazwisko), adres, miasto, numer telefonu, wraz z informacją czy dany podmiot jest klientem, pracownikiem, czy dostawcą.
+create view dane_osobowe_5i1 as (SELECT
+    klienci.ImieKlienta AS imie,
+    klienci.NazwiskoKlienta AS nazwisko,
+    klienci.AdresKlienta AS adres,
+    klienci.MiastoKlienta,
+    CONCAT(
+        klienci.NumKierKlienta,
+        " ",
+        klienci.TelefonKlienta
+    ) AS `nr telefonu`,
+    'klient' AS 'kto'
+FROM
+    klienci
+UNION
+SELECT
+    pracownicy.ImiePracownika,
+    pracownicy.NazwiskoPracownika,
+    pracownicy.AdresPracownika,
+    pracownicy.MiastoPracownika,
+    CONCAT(
+        pracownicy.NumKierunkPracownika,
+        " ",
+        pracownicy.TelefonPracownika
+    ),
+    'pracownik'
+FROM
+    pracownicy);
 2. Wyświetl numery zamówień, w ramach których zakupiono zarówno licznik jak i opone.
+  SELECT
+    dane_zamowien.NumerZamowienia
+FROM
+    `dane_zamowien`
+JOIN produkty ON produkty.NumerProduktu = dane_zamowien.NumerProduktu
+WHERE
+    produkty.NazwaProduktu LIKE "%licznik%"
+INTERSECT
+SELECT
+    dane_zamowien.NumerZamowienia
+FROM
+    `dane_zamowien`
+JOIN produkty ON produkty.NumerProduktu = dane_zamowien.NumerProduktu
+WHERE
+    produkty.NazwaProduktu LIKE "%opony%";
 3. Wyświetl numery zamówień, imiona i nazwiska klientów, którzy kupili licznik, ale nie kupili opony.
+
+SELECT
+    klienci.ImieKlienta,
+    klienci.NazwiskoKlienta
+FROM
+    `dane_zamowien`
+JOIN produkty ON produkty.NumerProduktu = dane_zamowien.NumerProduktu
+JOIN zamowienia ON zamowienia.NumerZamowienia = dane_zamowien.NumerZamowienia
+JOIN klienci ON klienci.IDKlienta = zamowienia.IDKlienta
+WHERE
+    produkty.NazwaProduktu LIKE "%licznik%"
+EXCEPT
+SELECT
+    klienci.ImieKlienta,
+    klienci.NazwiskoKlienta
+FROM
+    `dane_zamowien`
+JOIN produkty ON produkty.NumerProduktu = dane_zamowien.NumerProduktu
+JOIN zamowienia ON zamowienia.NumerZamowienia = dane_zamowien.NumerZamowienia
+JOIN klienci ON klienci.IDKlienta = zamowienia.IDKlienta
+WHERE
+    produkty.NazwaProduktu LIKE "%opony%";
