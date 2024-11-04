@@ -1,1 +1,29 @@
+upper 
+lower
+substring
+left 
+right
 
+
+SELECT
+    CONCAT(
+        CONCAT(
+            UPPER(LEFT(uczniowie.imie, 1)),
+            SUBSTRING(uczniowie.imie, 2)
+        ),
+        " ",
+        CONCAT(
+            UPPER(LEFT(uczniowie.nazwisko, 1)),
+            SUBSTRING(uczniowie.nazwisko, 2)
+        )
+    ) AS `imie nazwisko`,
+    CONCAT(
+        "wiek: ",
+        uczniowie.wiek,
+        ", nr w dzienniku: ",
+        uczniowie.id
+    ) AS `informacje dodatkowe`
+FROM
+    uczniowie;
+
+    
