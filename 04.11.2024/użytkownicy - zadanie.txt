@@ -1,7 +1,13 @@
 ﻿1. Zaloguj się na konto ROOT.
 2. Utwórz super-usera z pełnymi prawami do wszystkiego (nazwa to superuser).
+create user 'superuser_5i1'@'localhost' identified by 'qwerty';
 3. Zaloguj się na konto superuser.
+W CMD
+mysql -u superuser_5i1 -p
+qwerty
 4. Utwórz bazę "zwierzaki".
+create database zwierzaki;
+use zwierzaki;
 5. Do bazy dodaj 3 tabele (kopiuj-wklej):
 	Create table kotki (idkotek int auto_increment primary key, 
 				kotkirasa varchar(45),
@@ -24,12 +30,28 @@
 	Insert into swinki values ('','rasa3','niebieski');
 7. Utwórz uzytkownikow:
 	7.1. admin_zwierzaki mający pełne praca do całej bazy zwierzaki;
+create user 'admin_zwierzaki_5i1'@'localhost' identified by "qwerty";
+grant all PRIVILEGES on `zwierzaki`.* to 'admin_zwierzaki_5i1'@'localhost' with GRANT OPTION;
 	7.2. admin_kotki mający pełne prawa do tabeli kotki;
+create user 'admin_kotki_5i1'@'localhost' identified by "qwerty";
+grant all PRIVILEGES on `zwierzaki`.`kotki` to 'admin_kotki_5i1'@'localhost' with GRANT OPTION;
 	7.3. admin_pieski mający pełne prawa do tabeli pieski;
+create user 'admin_pieski_5i1'@'localhost' identified by "qwerty";
+grant all PRIVILEGES on `zwierzaki`.`pieski` to 'admin_pieski_5i1'@'localhost' with GRANT OPTION;
 	7.4. admin_swinki mający pełne prawa do tabeli swinki;
+create user 'admin_swinki_5i1'@'localhost' identified by "qwerty";
+grant all PRIVILEGES on `zwierzaki`.`swinki` to 'admin_swinki_5i1'@'localhost' with GRANT OPTION;
 	7.5. maniek mający prawo do wyświetlania danych z tabeli kotki;
+create user 'maniek_5i1'@'localhost' identified by "qwerty";
+grant select on `zwierzaki`.`kotki` to 'maniek_5i1'@'localhost'	;
 	7.6. jozek mający prawo do dodawania, usuwania oraz wyswietlania danych z tabeli pieski;
+create user 'jozek_5i1'@'localhost' identified by "qwerty";
+grant insert,delete,select on `zwierzaki`.`pieski` to 'jozek_5i1'@'localhost';
 	7.7. bronek mający prawo do tworznia, aktualizowania tabel w bazie, oraz do wyświetlania danych z tabeli kotki i swinki.
+create user 'bronek_5i1'@'localhost' identified by "qwerty";
+grant create,alter on `zwierzaki`.* to 'bronek_5i1'@'localhost';
+grant select on `zwierzaki`.`kotki` to 'bronek_5i1'@'localhost';
+grant select on `zwierzaki`.`swinki` to 'bronek_5i1'@'localhost';
 8. Utwórz rolę testerzy. 
 9. Nadaj roli testerzy uprawnienia do wyświetlania tabel w bazie zwierzaki.
 10. Utwórz użytkowników tester1 oraz tester2.
