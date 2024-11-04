@@ -1,0 +1,3 @@
+1. Utwórz widok "dane_osobowe" zawierający: nazwę (w przypadku klientów i pracowników imię i nazwisko), adres, miasto, numer telefonu, wraz z informacją czy dany podmiot jest klientem, pracownikiem, czy dostawcą.
+2. Wyświetl numery zamówień, w ramach których zakupiono zarówno licznik jak i opone.
+3. Wyświetl numery zamówień, imiona i nazwiska klientów, którzy kupili licznik, ale nie kupili opony.
