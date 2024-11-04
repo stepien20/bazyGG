@@ -1,0 +1,38 @@
+﻿1. Zaloguj się na konto ROOT.
+2. Utwórz super-usera z pełnymi prawami do wszystkiego (nazwa to superuser).
+3. Zaloguj się na konto superuser.
+4. Utwórz bazę "zwierzaki".
+5. Do bazy dodaj 3 tabele (kopiuj-wklej):
+	Create table kotki (idkotek int auto_increment primary key, 
+				kotkirasa varchar(45),
+				kotkikolor varchar (45));
+	Create table pieski (idpieski int auto_increment primary key, 
+				pieskirasa varchar(45),
+				pieskikolor varchar (45));
+	Create table swinki (idswinki int auto_increment primary key, 
+				swinkirasa varchar(45),
+				swinkikolor varchar (45));
+6. Do tabel dodaj rekordy (kopiuj-wklej):
+	Insert into kotki values ('','mustafa','rudy');
+	Insert into kotki values ('','rafasa','biały');
+	Insert into kotki values ('','mustafa','zielony');
+	Insert into pieski values ('','kundel','wielobarwny');
+	Insert into pieski values ('','jamnik','czarny');
+	Insert into pieski values ('','bernardyn','brazowy');
+	Insert into swinki values ('','rasa1','rozowy');
+	Insert into swinki values ('','rasa2','filetowy');
+	Insert into swinki values ('','rasa3','niebieski');
+7. Utwórz uzytkownikow:
+	7.1. admin_zwierzaki mający pełne praca do całej bazy zwierzaki;
+	7.2. admin_kotki mający pełne prawa do tabeli kotki;
+	7.3. admin_pieski mający pełne prawa do tabeli pieski;
+	7.4. admin_swinki mający pełne prawa do tabeli swinki;
+	7.5. maniek mający prawo do wyświetlania danych z tabeli kotki;
+	7.6. jozek mający prawo do dodawania, usuwania oraz wyswietlania danych z tabeli pieski;
+	7.7. bronek mający prawo do tworznia, aktualizowania tabel w bazie, oraz do wyświetlania danych z tabeli kotki i swinki.
+8. Utwórz rolę testerzy. 
+9. Nadaj roli testerzy uprawnienia do wyświetlania tabel w bazie zwierzaki.
+10. Utwórz użytkowników tester1 oraz tester2.
+11. Dodaj użytkowników tester1 oraz tester2 do roli testerzy i aktywuj rolę.
+
+ 
